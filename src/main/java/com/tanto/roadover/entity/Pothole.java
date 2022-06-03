@@ -1,8 +1,6 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +15,10 @@ public class Pothole {
 
     @Column
     private Double area;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -40,5 +42,13 @@ public class Pothole {
 
     public void setArea(Double area) {
         this.area = area;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

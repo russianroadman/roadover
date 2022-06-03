@@ -1,10 +1,11 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Колейность
+ * */
 @Entity
 public class Track {
 
@@ -17,6 +18,10 @@ public class Track {
 
     @Column
     private Double length;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -40,5 +45,13 @@ public class Track {
 
     public void setLength(Double length) {
         this.length = length;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

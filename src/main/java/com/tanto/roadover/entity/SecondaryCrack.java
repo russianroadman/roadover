@@ -1,8 +1,6 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -17,6 +15,10 @@ public class SecondaryCrack {
 
     @Column
     private Double frequency;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -40,5 +42,13 @@ public class SecondaryCrack {
 
     public void setFrequency(Double frequency) {
         this.frequency = frequency;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

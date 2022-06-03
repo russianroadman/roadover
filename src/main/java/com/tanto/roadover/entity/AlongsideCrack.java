@@ -1,10 +1,11 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Обкрашивание кромок покрытия
+ * */
 @Entity
 public class AlongsideCrack {
 
@@ -14,6 +15,10 @@ public class AlongsideCrack {
 
     @Column
     private Double value;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -29,5 +34,13 @@ public class AlongsideCrack {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

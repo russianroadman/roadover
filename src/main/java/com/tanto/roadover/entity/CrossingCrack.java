@@ -1,10 +1,11 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Трещины косые и пересекающиеся
+ * */
 @Entity
 public class CrossingCrack {
 
@@ -18,7 +19,39 @@ public class CrossingCrack {
     @Column
     private Double length;
 
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
+    public UUID getId() {
+        return id;
+    }
 
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
+    public Double getWidth() {
+        return width;
+    }
+
+    public void setWidth(Double width) {
+        this.width = width;
+    }
+
+    public Double getLength() {
+        return length;
+    }
+
+    public void setLength(Double length) {
+        this.length = length;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
 }

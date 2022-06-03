@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class StraightCrack {
+public class FreezeLayer {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -13,8 +13,17 @@ public class StraightCrack {
     @Column
     private Double width;
 
+    /**
+     * Снежный накат - плотный
+     * */
     @Column
-    private Double length;
+    private Boolean dense;
+
+    /**
+     * % площади дефекта от общей площади покрытия
+     * */
+    @Column
+    private Double percentage;
 
     @JoinColumn(nullable = false)
     @OneToOne
@@ -36,12 +45,20 @@ public class StraightCrack {
         this.width = width;
     }
 
-    public Double getLength() {
-        return length;
+    public Double getPercentage() {
+        return percentage;
     }
 
-    public void setLength(Double length) {
-        this.length = length;
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
+    }
+
+    public Boolean getDense() {
+        return dense;
+    }
+
+    public void setDense(Boolean dense) {
+        this.dense = dense;
     }
 
     public Report getReport() {

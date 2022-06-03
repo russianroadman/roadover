@@ -1,8 +1,6 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +17,11 @@ public class LocalUnevenness {
     private Double area;
 
     @Column
-    private Double roadSiteArea;
+    private Double depth;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -45,11 +47,19 @@ public class LocalUnevenness {
         this.area = area;
     }
 
-    public Double getRoadSiteArea() {
-        return roadSiteArea;
+    public Double getDepth() {
+        return depth;
     }
 
-    public void setRoadSiteArea(Double roadSiteArea) {
-        this.roadSiteArea = roadSiteArea;
+    public void setDepth(Double depth) {
+        this.depth = depth;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

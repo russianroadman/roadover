@@ -1,8 +1,6 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -16,10 +14,11 @@ public class Waves {
     private Double difference;
 
     @Column
-    private Double length;
-
-    @Column
     private Double roadSiteLength;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -37,19 +36,19 @@ public class Waves {
         this.difference = difference;
     }
 
-    public Double getLength() {
-        return length;
-    }
-
-    public void setLength(Double length) {
-        this.length = length;
-    }
-
     public Double getRoadSiteLength() {
         return roadSiteLength;
     }
 
     public void setRoadSiteLength(Double roadSiteLength) {
         this.roadSiteLength = roadSiteLength;
+    }
+
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

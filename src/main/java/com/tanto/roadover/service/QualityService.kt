@@ -7,7 +7,7 @@ import com.tanto.roadover.entity.CrossingCrack
 import com.tanto.roadover.entity.Crumb
 import com.tanto.roadover.entity.Deformation
 import com.tanto.roadover.entity.Dirt
-import com.tanto.roadover.entity.Freeze
+import com.tanto.roadover.entity.FreezeLayer
 import com.tanto.roadover.entity.Liquid
 import com.tanto.roadover.entity.LocalUnevenness
 import com.tanto.roadover.entity.Pothole
@@ -35,7 +35,7 @@ interface QualityService {
 
     fun getQuality(defect: Dirt): QualityViolation
 
-    fun getQuality(defect: Freeze): QualityViolation
+    fun getQuality(defect: FreezeLayer): QualityViolation
 
     fun getQuality(defect: Liquid): QualityViolation
 

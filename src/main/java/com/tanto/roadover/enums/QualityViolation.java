@@ -2,7 +2,7 @@ package com.tanto.roadover.enums;
 
 public enum QualityViolation implements Enumeration<String> {
 
-    NONE("NONE"),
+    EXTREME("EXTREME"),
     LOW("LOW"),
     MID("MID"),
     HIGH("HIGH");

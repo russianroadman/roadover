@@ -1,10 +1,11 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Сетка трещин
+ * */
 @Entity
 public class WebCrack {
 
@@ -16,7 +17,14 @@ public class WebCrack {
     private Double area;
 
     @Column
+    private Double crackWidth;
+
+    @Column
     private Boolean hasDirt;
+
+    @JoinColumn(nullable = false)
+    @OneToOne
+    private Report report;
 
     public UUID getId() {
         return id;
@@ -40,5 +48,13 @@ public class WebCrack {
 
     public void setHasDirt(Boolean hasDirt) {
         this.hasDirt = hasDirt;
+    }
+
+    public Double getCrackWidth() {
+        return crackWidth;
+    }
+
+    public void setCrackWidth(Double crackWidth) {
+        this.crackWidth = crackWidth;
     }
 }

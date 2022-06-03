@@ -251,6 +251,27 @@ class QualityServiceImpl: QualityService {
         }
     }
 
+    override fun getQuality(defect: StraightCrack): QualityViolation {
+        return if (
+            defect.width < 6.0 && defect.length < 35.0
+        ) {
+            QualityViolation.LOW
+        } else if (
+            defect.width < 6.0 && defect.length > 35.0 ||
+            defect.width in 6.0..19.0 && defect.length < 35.0 ||
+            defect.width > 19.0 && defect.length <= 15.0
+        ) {
+            QualityViolation.MID
+        } else if (
+            defect.width in 6.0..19.0 && defect.length > 35.0 ||
+            defect.width > 19.0 && defect.length > 15.0
+        ) {
+            QualityViolation.HIGH
+        } else {
+            QualityViolation.EXTREME
+        }
+    }
+
     override fun getQuality(defect: Track): QualityViolation {
         return if (
             defect.depth < 1 && defect.length < 50

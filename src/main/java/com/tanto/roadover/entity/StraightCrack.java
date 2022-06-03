@@ -3,6 +3,9 @@ package com.tanto.roadover.entity;
 import javax.persistence.*;
 import java.util.UUID;
 
+/**
+ * Продольные трещины
+ * */
 @Entity
 public class StraightCrack {
 

@@ -1,22 +1,6 @@
 package com.tanto.roadover.service
 
-import com.tanto.roadover.entity.AlongsideCrack
-import com.tanto.roadover.entity.Bitumen
-import com.tanto.roadover.entity.CrossCrack
-import com.tanto.roadover.entity.CrossingCrack
-import com.tanto.roadover.entity.Crumb
-import com.tanto.roadover.entity.Deformation
-import com.tanto.roadover.entity.Dirt
-import com.tanto.roadover.entity.FreezeLayer
-import com.tanto.roadover.entity.Liquid
-import com.tanto.roadover.entity.LocalUnevenness
-import com.tanto.roadover.entity.Pothole
-import com.tanto.roadover.entity.RoadWorkFailure
-import com.tanto.roadover.entity.SecondaryCrack
-import com.tanto.roadover.entity.Track
-import com.tanto.roadover.entity.Waves
-import com.tanto.roadover.entity.Wear
-import com.tanto.roadover.entity.WebCrack
+import com.tanto.roadover.entity.*
 import com.tanto.roadover.enums.QualityViolation
 
 interface QualityService {
@@ -46,6 +30,8 @@ interface QualityService {
     fun getQuality(defect: RoadWorkFailure): QualityViolation
 
     fun getQuality(defect: SecondaryCrack): QualityViolation
+
+    fun getQuality(defect: StraightCrack): QualityViolation
 
     fun getQuality(defect: Track): QualityViolation
 

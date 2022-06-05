@@ -15,4 +15,13 @@ spring:
     scheduling:
       pool:
         size: 5
+  security:
+    user:
+      password: admin
+      name: admin
+
+roadover:
+  http:
+    auth-token-header-name: "api-key"
+    auth-token: "admin"
 

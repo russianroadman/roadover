@@ -134,8 +134,8 @@ class QualityTests {
     @Test
     void crossCrackQuality_MID() {
         CrossCrack defect = new CrossCrack();
-        defect.setLength(0.0);
-        defect.setWidth(0.0);
+        defect.setLength(34.0);
+        defect.setWidth(15.0);
         Assertions.assertEquals(
                 QualityViolation.MID, qualityService.getQuality(defect)
         );
@@ -150,8 +150,8 @@ class QualityTests {
     @Test
     void crossCrackQuality_HIGH() {
         CrossCrack defect = new CrossCrack();
-        defect.setLength(0.0);
-        defect.setWidth(0.0);
+        defect.setLength(20.0);
+        defect.setWidth(20.0);
         Assertions.assertEquals(
                 QualityViolation.HIGH, qualityService.getQuality(defect)
         );

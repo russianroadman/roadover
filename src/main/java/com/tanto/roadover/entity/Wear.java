@@ -1,5 +1,7 @@
 package com.tanto.roadover.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -7,9 +9,10 @@ import java.util.UUID;
  * Износ поверхности покрытия
  * */
 @Entity
-public class Wear {
+public class Wear extends Defect {
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private UUID id;
 
@@ -18,6 +21,7 @@ public class Wear {
 
     @JoinColumn(nullable = false)
     @OneToOne
+    @JsonIgnore
     private Report report;
 
     public UUID getId() {

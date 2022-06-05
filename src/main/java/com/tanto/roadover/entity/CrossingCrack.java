@@ -1,5 +1,7 @@
 package com.tanto.roadover.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -7,9 +9,10 @@ import java.util.UUID;
  * Трещины косые и пересекающиеся
  * */
 @Entity
-public class CrossingCrack {
+public class CrossingCrack extends Defect {
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private UUID id;
 
@@ -21,6 +24,7 @@ public class CrossingCrack {
 
     @JoinColumn(nullable = false)
     @OneToOne
+    @JsonIgnore
     private Report report;
 
     public UUID getId() {

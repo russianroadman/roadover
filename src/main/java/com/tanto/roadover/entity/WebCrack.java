@@ -1,5 +1,7 @@
 package com.tanto.roadover.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -7,9 +9,10 @@ import java.util.UUID;
  * Сетка трещин
  * */
 @Entity
-public class WebCrack {
+public class WebCrack extends Defect {
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private UUID id;
 
@@ -24,6 +27,7 @@ public class WebCrack {
 
     @JoinColumn(nullable = false)
     @OneToOne
+    @JsonIgnore
     private Report report;
 
     public UUID getId() {
@@ -42,6 +46,14 @@ public class WebCrack {
         this.area = area;
     }
 
+    public Double getCrackWidth() {
+        return crackWidth;
+    }
+
+    public void setCrackWidth(Double crackWidth) {
+        this.crackWidth = crackWidth;
+    }
+
     public Boolean getHasDirt() {
         return hasDirt;
     }
@@ -50,11 +62,11 @@ public class WebCrack {
         this.hasDirt = hasDirt;
     }
 
-    public Double getCrackWidth() {
-        return crackWidth;
+    public Report getReport() {
+        return report;
     }
 
-    public void setCrackWidth(Double crackWidth) {
-        this.crackWidth = crackWidth;
+    public void setReport(Report report) {
+        this.report = report;
     }
 }

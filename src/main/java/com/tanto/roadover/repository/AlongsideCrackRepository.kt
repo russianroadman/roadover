@@ -5,4 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
 interface AlongsideCrackRepository : JpaRepository<AlongsideCrack, UUID> {
+
+    fun findByReportId(id: UUID): AlongsideCrack
+
 }

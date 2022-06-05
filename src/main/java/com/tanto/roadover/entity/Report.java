@@ -1,16 +1,14 @@
 package com.tanto.roadover.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
-public class Report {
+public class Report extends Defect {
 
     @Id
+    @GeneratedValue
     @Column(nullable = false)
     private UUID id;
 

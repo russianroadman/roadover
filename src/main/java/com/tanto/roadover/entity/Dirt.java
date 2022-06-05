@@ -1,14 +1,16 @@
 package com.tanto.roadover.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tanto.roadover.enums.DirtType;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class Dirt {
+public class Dirt extends Defect {
 
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private UUID id;
 
@@ -17,6 +19,7 @@ public class Dirt {
 
     @JoinColumn(nullable = false)
     @OneToOne
+    @JsonIgnore
     private Report report;
 
     public UUID getId() {
